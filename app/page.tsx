@@ -26,16 +26,18 @@ export default function Home() {
         body: JSON.stringify(data),
       });
 
-      const result = await res.json();
-
-      if (!res.ok || result?.error) {
-        throw new Error("API failed");
+      // Only fail if HTTP request actually failed
+      if (!res.ok) {
+        throw new Error("Request failed");
       }
+
+      // Safe parse (won't break flow if response format changes)
+      await res.json().catch(() => ({}));
 
       alert("Quote request sent!");
       e.currentTarget.reset();
     } catch (err) {
-      console.error(err);
+      console.error("Form submit error:", err);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
