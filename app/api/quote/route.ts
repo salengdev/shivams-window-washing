@@ -1,35 +1,31 @@
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: Request) {
-  console.log("➡️ API HIT");
-
   try {
     const body = await req.json();
-    console.log("BODY:", body);
 
-    const result = await resend.emails.send({
+    await resend.emails.send({
       from: "Shivam's Window Washing <onboarding@resend.dev>",
       to: "salkdee@gmail.com",
       subject: "New Quote Request",
       html: `
-        <h2>New Quote Request</h2>
         <p><b>Name:</b> ${body.name}</p>
         <p><b>Email:</b> ${body.email}</p>
         <p><b>Message:</b> ${body.message}</p>
       `,
     });
 
-    console.log("RESEND RESULT:", result);
+    // IMPORTANT: proper Next.js response
+    return NextResponse.json({ success: true }, { status: 200 });
 
-    return Response.json({ ok: true });
+  } catch (error) {
+    console.error("API ERROR:", error);
 
-  } catch (err) {
-    console.error("API FAILED:", err);
-
-    return Response.json(
-      { ok: false },
+    return NextResponse.json(
+      { success: false },
       { status: 500 }
     );
   }
