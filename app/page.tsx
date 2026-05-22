@@ -7,9 +7,8 @@ export default function Home() {
       {/* HERO */}
       <section style={{ position: "relative", width: "100%", height: "70vh" }}>
 
-        {/* BACKGROUND IMAGE */}
         <img
-          src="/gallery/hero.png"
+          src="/images/hero.png"
           alt="Hero"
           style={{
             width: "100%",
@@ -18,26 +17,22 @@ export default function Home() {
             position: "absolute",
             top: 0,
             left: 0,
-            zIndex: 1,
             display: "block"
           }}
         />
 
-        {/* DARK OVERLAY */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.45)",
-            zIndex: 2
+            background: "rgba(0,0,0,0.45)"
           }}
         />
 
-        {/* HERO CONTENT */}
         <div
           style={{
             position: "relative",
-            zIndex: 3,
+            zIndex: 2,
             height: "70vh",
             display: "flex",
             flexDirection: "column",
@@ -75,7 +70,6 @@ export default function Home() {
 
       {/* BEFORE / AFTER */}
       <section style={{ padding: "60px 20px", textAlign: "center" }}>
-
         <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>
           Before & After
         </h2>
@@ -86,15 +80,14 @@ export default function Home() {
           <div>
             <p style={{ fontWeight: "bold", marginBottom: "10px" }}>Before</p>
             <img
-              src="/gallery/before.png"
+              src="/images/before.png"
               alt="Before"
               width="350"
               height="350"
               style={{
                 objectFit: "cover",
                 border: "3px solid red",
-                borderRadius: "10px",
-                display: "block"
+                borderRadius: "10px"
               }}
             />
           </div>
@@ -103,15 +96,14 @@ export default function Home() {
           <div>
             <p style={{ fontWeight: "bold", marginBottom: "10px" }}>After</p>
             <img
-              src="/gallery/after.png"
+              src="/images/after.png"
               alt="After"
               width="350"
               height="350"
               style={{
                 objectFit: "cover",
                 border: "3px solid green",
-                borderRadius: "10px",
-                display: "block"
+                borderRadius: "10px"
               }}
             />
           </div>
@@ -121,7 +113,6 @@ export default function Home() {
 
       {/* SERVICES */}
       <section style={{ padding: "60px 20px", background: "#f8fafc", textAlign: "center" }}>
-
         <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>
           Services
         </h2>
@@ -158,7 +149,6 @@ export default function Home() {
         id="quote"
         style={{ padding: "60px 20px", textAlign: "center" }}
       >
-
         <h2 style={{ fontSize: "32px", marginBottom: "20px" }}>
           Get a Free Quote
         </h2>
@@ -200,7 +190,6 @@ export default function Home() {
             Send Quote Request
           </button>
         </form>
-
       </section>
 
     </main>
