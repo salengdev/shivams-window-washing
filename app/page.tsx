@@ -16,7 +16,7 @@ export default function Home() {
         }}
       >
         <Image
-          src="/gallery/hero.png"
+          src="https://shivams-window-washing.vercel.app/gallery/hero.png"
           alt="Hero"
           fill
           priority
@@ -118,7 +118,7 @@ export default function Home() {
             </p>
 
             <Image
-              src="/gallery/before.png"
+              src="https://shivams-window-washing.vercel.app/gallery/before.png"
               alt="Before"
               width={350}
               height={350}
@@ -143,7 +143,7 @@ export default function Home() {
             </p>
 
             <Image
-              src="/gallery/after.png"
+              src="https://shivams-window-washing.vercel.app/gallery/after.png"
               alt="After"
               width={350}
               height={350}
