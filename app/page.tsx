@@ -4,126 +4,79 @@ export default function Home() {
   return (
     <main style={{ fontFamily: "sans-serif", color: "#111" }}>
 
-      {/* HERO */}
-      <section
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "70vh",
-          minHeight: "450px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          color: "white",
-          overflow: "hidden"
-        }}
-      >
+      {/* HERO (SIMPLIFIED - NO LAYERS ISSUES) */}
+      <section style={{ width: "100%" }}>
 
         <img
           src="/gallery/hero.png"
-          alt="Hero background"
+          alt="Hero"
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
             width: "100%",
-            height: "100%",
+            height: "60vh",
             objectFit: "cover",
-            objectPosition: "center top",
-            zIndex: 0
+            display: "block"
           }}
         />
 
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0,0,0,0.45)",
-            zIndex: 1
-          }}
-        />
-
-        <div style={{ position: "relative", zIndex: 2 }}>
-
-          <h1 style={{ fontSize: "48px", fontWeight: "bold", marginBottom: "10px" }}>
+        <div style={{ textAlign: "center", padding: "30px" }}>
+          <h1 style={{ fontSize: "40px", fontWeight: "bold" }}>
             Shivam's Window Washing
           </h1>
 
-          <p style={{ fontSize: "18px", marginBottom: "25px" }}>
+          <p style={{ fontSize: "18px", color: "#555" }}>
             Professional residential window washing & gutter cleaning
           </p>
 
           <a
             href="#quote"
             style={{
+              display: "inline-block",
+              marginTop: "15px",
               background: "#22c55e",
               color: "white",
               padding: "12px 18px",
               borderRadius: "8px",
-              textDecoration: "none",
-              fontWeight: "bold"
+              textDecoration: "none"
             }}
           >
             Call / Get Quote
           </a>
-
         </div>
       </section>
 
-      {/* BEFORE / AFTER */}
-      <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 20px" }}>
+      {/* BEFORE / AFTER (CLEAN TEST VERSION) */}
+      <section style={{ padding: "60px 20px", textAlign: "center" }}>
 
-        <h2 style={{ textAlign: "center", fontSize: "28px", marginBottom: "40px" }}>
+        <h2 style={{ fontSize: "28px", marginBottom: "30px" }}>
           Before & After
         </h2>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "20px"
-          }}
-        >
+        <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
 
-          {/* BEFORE */}
-          <div style={{
-            background: "#fff",
-            padding: "12px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
-            textAlign: "center"
-          }}>
-            <p style={{ marginBottom: "10px", fontWeight: "600" }}>Before</p>
+          <div>
+            <p>Before</p>
             <img
               src="/gallery/before.png"
-              alt="Before cleaning"
+              alt="Before"
               style={{
-                width: "100%",
-                height: "320px",
+                width: "300px",
+                height: "300px",
                 objectFit: "cover",
-                borderRadius: "10px"
+                border: "3px solid red"
               }}
             />
           </div>
 
-          {/* AFTER */}
-          <div style={{
-            background: "#fff",
-            padding: "12px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
-            textAlign: "center"
-          }}>
-            <p style={{ marginBottom: "10px", fontWeight: "600" }}>After</p>
+          <div>
+            <p>After</p>
             <img
               src="/gallery/after.png"
-              alt="After cleaning"
+              alt="After"
               style={{
-                width: "100%",
-                height: "320px",
+                width: "300px",
+                height: "300px",
                 objectFit: "cover",
-                borderRadius: "10px"
+                border: "3px solid green"
               }}
             />
           </div>
@@ -132,92 +85,60 @@ export default function Home() {
       </section>
 
       {/* SERVICES */}
-      <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 20px" }}>
+      <section style={{ padding: "60px 20px", textAlign: "center" }}>
 
-        <h2 style={{ textAlign: "center", fontSize: "28px", marginBottom: "40px" }}>
+        <h2 style={{ fontSize: "28px", marginBottom: "30px" }}>
           Services
         </h2>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: "20px"
-          }}
-        >
+        <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
 
           <div style={{
-            background: "#fff",
+            width: "300px",
             padding: "20px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.08)"
+            border: "1px solid #ddd",
+            borderRadius: "10px"
           }}>
-            <h3>Residential Window Washing</h3>
-            <p style={{ color: "#666", fontSize: "14px" }}>
-              Streak-free interior and exterior window cleaning for homes.
-            </p>
+            <h3>Window Washing</h3>
+            <p>Streak-free interior & exterior cleaning.</p>
           </div>
 
           <div style={{
-            background: "#fff",
+            width: "300px",
             padding: "20px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.08)"
+            border: "1px solid #ddd",
+            borderRadius: "10px"
           }}>
             <h3>Gutter Cleaning</h3>
-            <p style={{ color: "#666", fontSize: "14px" }}>
-              Full debris removal and flushing to protect your home from water damage.
-            </p>
+            <p>Debris removal and water flow protection.</p>
           </div>
 
         </div>
       </section>
 
       {/* QUOTE */}
-      <section id="quote" style={{ background: "#f5f5f5", padding: "60px 20px" }}>
+      <section id="quote" style={{ padding: "60px 20px", background: "#f5f5f5" }}>
 
-        <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
+        <div style={{ maxWidth: "500px", margin: "0 auto", textAlign: "center" }}>
 
-          <h2 style={{ fontSize: "24px", marginBottom: "15px" }}>
-            Get a Free Quote
-          </h2>
-
-          <p style={{ color: "#666", marginBottom: "25px" }}>
-            Fill out the form and we’ll get back to you.
-          </p>
+          <h2>Get a Free Quote</h2>
 
           <form
-            onSubmit={async (e) => {
+            onSubmit={(e) => {
               e.preventDefault();
-
-              const form = e.target as HTMLFormElement;
-
-              const data = {
-                name: (form.elements.namedItem("name") as HTMLInputElement).value,
-                email: (form.elements.namedItem("email") as HTMLInputElement).value,
-                message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
-              };
-
-              await fetch("/api/quote", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-              });
-
               alert("Quote request sent!");
-              form.reset();
             }}
             style={{ display: "flex", flexDirection: "column", gap: "10px" }}
           >
 
-            <input name="name" placeholder="Your Name" required
-              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }} />
+            <input placeholder="Name" required
+              style={{ padding: "10px" }} />
 
-            <input name="email" placeholder="Your Email" required
-              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }} />
+            <input placeholder="Email" required
+              style={{ padding: "10px" }} />
 
-            <textarea name="message" placeholder="Message" required rows={4}
-              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }} />
+            <textarea placeholder="Message" required
+              style={{ padding: "10px" }} />
 
             <button
               type="submit"
@@ -225,13 +146,11 @@ export default function Home() {
                 background: "#2563eb",
                 color: "white",
                 padding: "12px",
-                borderRadius: "8px",
                 border: "none",
-                fontWeight: "bold",
-                cursor: "pointer"
+                borderRadius: "8px"
               }}
             >
-              Send Quote Request
+              Send Quote
             </button>
 
           </form>
