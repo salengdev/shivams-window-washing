@@ -14,8 +14,11 @@ export default function Home() {
     setLoading(true);
     setStatus(null);
 
+    // ✅ FIX: store form reference BEFORE async
+    const form = e.currentTarget;
+
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(form);
 
       const res = await fetch("/api/quote", {
         method: "POST",
@@ -29,18 +32,16 @@ export default function Home() {
         }),
       });
 
-      // 🔥 DEBUG LINE (IMPORTANT)
-      console.log("REACHED AFTER FETCH");
-
-      const data = await res.json();
-      console.log("API RESPONSE:", data);
-
-      if (!res.ok || !data?.success) {
+      // only check HTTP status (stable)
+      if (!res.ok) {
         throw new Error("Request failed");
       }
 
       setStatus("success");
-      e.currentTarget.reset();
+
+      // ✅ FIX: use stored form reference (not event object)
+      form.reset();
+
     } catch (err) {
       console.error("Submit error:", err);
       setStatus("error");
