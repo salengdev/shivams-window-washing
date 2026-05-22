@@ -101,7 +101,7 @@ export default function Home() {
           >
             <p style={{ marginBottom: "10px", fontWeight: "600" }}>Before</p>
             <img
-              src="/gallery/before.png"
+              src="/public/gallery/before.png"
               alt="Before cleaning"
               style={{
                 width: "100%",
