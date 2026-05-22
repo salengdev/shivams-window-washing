@@ -26,16 +26,22 @@ export default function Home() {
         body: JSON.stringify(data),
       });
 
+      // ✅ ONLY THIS MATTERS (prevents false errors)
       if (!res.ok) {
         throw new Error("Request failed");
       }
 
-      await res.json().catch(() => ({}));
+      // ✅ Safe attempt, but NEVER allowed to break flow
+      try {
+        await res.text();
+      } catch {
+        // ignore completely
+      }
 
       alert("Quote request sent!");
       e.currentTarget.reset();
     } catch (err) {
-      console.error("Form error:", err);
+      console.error("Submit error:", err);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
