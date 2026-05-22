@@ -17,7 +17,7 @@ export default function Home() {
     try {
       const formData = new FormData(e.currentTarget);
 
-      await fetch("/api/quote", {
+      const res = await fetch("/api/quote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,11 +29,17 @@ export default function Home() {
         }),
       });
 
-      // IMPORTANT: assume success if request completes
+      // read plain text response (IMPORTANT: matches backend)
+      const text = await res.text();
+
+      if (!res.ok || text !== "OK") {
+        throw new Error("Request failed");
+      }
+
       setStatus("success");
       e.currentTarget.reset();
     } catch (err) {
-      console.error(err);
+      console.error("Submit error:", err);
       setStatus("error");
     } finally {
       setLoading(false);
@@ -178,7 +184,7 @@ export default function Home() {
           Get a Free Quote
         </h2>
 
-        {/* STATUS BANNER */}
+        {/* SUCCESS */}
         {status === "success" && (
           <div
             style={{
@@ -196,6 +202,7 @@ export default function Home() {
           </div>
         )}
 
+        {/* ERROR */}
         {status === "error" && (
           <div
             style={{
