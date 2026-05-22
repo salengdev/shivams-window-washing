@@ -29,10 +29,13 @@ export default function Home() {
         }),
       });
 
-      // read plain text response (IMPORTANT: matches backend)
-      const text = await res.text();
+      // 🔥 DEBUG LINE (IMPORTANT)
+      console.log("REACHED AFTER FETCH");
 
-      if (!res.ok || text !== "OK") {
+      const data = await res.json();
+      console.log("API RESPONSE:", data);
+
+      if (!res.ok || !data?.success) {
         throw new Error("Request failed");
       }
 
@@ -184,7 +187,6 @@ export default function Home() {
           Get a Free Quote
         </h2>
 
-        {/* SUCCESS */}
         {status === "success" && (
           <div
             style={{
@@ -202,7 +204,6 @@ export default function Home() {
           </div>
         )}
 
-        {/* ERROR */}
         {status === "error" && (
           <div
             style={{
