@@ -5,7 +5,9 @@ export default function Home() {
     <main style={{ fontFamily: "sans-serif", color: "#111" }}>
 
       {/* HERO */}
-      <section style={{ position: "relative", width: "100%" }}>
+      <section style={{ position: "relative", width: "100%", height: "70vh" }}>
+
+        {/* BACKGROUND IMAGE */}
         <img
           src="/gallery/hero.png"
           alt="Hero"
@@ -13,22 +15,30 @@ export default function Home() {
             width: "100%",
             height: "70vh",
             objectFit: "cover",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 1,
             display: "block"
           }}
         />
 
+        {/* DARK OVERLAY */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.45)"
+            background: "rgba(0,0,0,0.45)",
+            zIndex: 2
           }}
         />
 
+        {/* HERO CONTENT */}
         <div
           style={{
-            position: "absolute",
-            inset: 0,
+            position: "relative",
+            zIndex: 3,
+            height: "70vh",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -65,6 +75,7 @@ export default function Home() {
 
       {/* BEFORE / AFTER */}
       <section style={{ padding: "60px 20px", textAlign: "center" }}>
+
         <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>
           Before & After
         </h2>
@@ -82,7 +93,8 @@ export default function Home() {
               style={{
                 objectFit: "cover",
                 border: "3px solid red",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                display: "block"
               }}
             />
           </div>
@@ -98,7 +110,8 @@ export default function Home() {
               style={{
                 objectFit: "cover",
                 border: "3px solid green",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                display: "block"
               }}
             />
           </div>
@@ -108,6 +121,7 @@ export default function Home() {
 
       {/* SERVICES */}
       <section style={{ padding: "60px 20px", background: "#f8fafc", textAlign: "center" }}>
+
         <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>
           Services
         </h2>
@@ -144,6 +158,7 @@ export default function Home() {
         id="quote"
         style={{ padding: "60px 20px", textAlign: "center" }}
       >
+
         <h2 style={{ fontSize: "32px", marginBottom: "20px" }}>
           Get a Free Quote
         </h2>
@@ -185,6 +200,7 @@ export default function Home() {
             Send Quote Request
           </button>
         </form>
+
       </section>
 
     </main>
