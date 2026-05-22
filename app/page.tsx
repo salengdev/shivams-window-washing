@@ -2,154 +2,258 @@
 
 export default function Home() {
   return (
-    <main style={{ fontFamily: "sans-serif", color: "#111" }}>
-
+    <main
+      style={{
+        fontFamily: "Arial, sans-serif",
+        color: "#111",
+        margin: 0,
+        padding: 0,
+        overflowX: "hidden",
+      }}
+    >
       {/* HERO */}
-      <section style={{ position: "relative", width: "100%", height: "70vh" }}>
-
+      <section
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "70vh",
+          minHeight: "500px",
+        }}
+      >
         <img
           src="/images/hero.png"
-          alt="Hero"
+          alt="Window Washing Hero"
           style={{
             width: "100%",
-            height: "70vh",
+            height: "100%",
             objectFit: "cover",
             position: "absolute",
-            top: 0,
-            left: 0,
-            display: "block"
+            inset: 0,
+            display: "block",
           }}
         />
 
+        {/* Overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.45)"
+            background: "rgba(0,0,0,0.45)",
           }}
         />
 
+        {/* Hero Content */}
         <div
           style={{
             position: "relative",
             zIndex: 2,
-            height: "70vh",
+            height: "100%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
             color: "white",
-            padding: "20px"
+            padding: "20px",
           }}
         >
-          <h1 style={{ fontSize: "48px", fontWeight: "bold" }}>
-            Shivam's Window Washing
+          <h1
+            style={{
+              fontSize: "clamp(36px, 6vw, 64px)",
+              fontWeight: "bold",
+              marginBottom: "16px",
+            }}
+          >
+            Shivam&apos;s Window Washing
           </h1>
 
-          <p style={{ fontSize: "18px", marginTop: "10px" }}>
+          <p
+            style={{
+              fontSize: "clamp(18px, 2vw, 24px)",
+              maxWidth: "700px",
+              lineHeight: 1.5,
+            }}
+          >
             Professional residential window washing & gutter cleaning
           </p>
 
           <a
             href="#quote"
             style={{
-              marginTop: "20px",
+              marginTop: "28px",
               background: "#22c55e",
               color: "white",
-              padding: "12px 18px",
-              borderRadius: "8px",
+              padding: "14px 22px",
+              borderRadius: "10px",
               textDecoration: "none",
-              fontWeight: "bold"
+              fontWeight: "bold",
+              fontSize: "18px",
             }}
           >
-            Call / Get Quote
+            Get Free Quote
           </a>
         </div>
       </section>
 
       {/* BEFORE / AFTER */}
-      <section style={{ padding: "60px 20px", textAlign: "center" }}>
-        <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>
+      <section
+        style={{
+          padding: "70px 20px",
+          textAlign: "center",
+          background: "#ffffff",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "40px",
+            marginBottom: "50px",
+          }}
+        >
           Before & After
         </h2>
 
-        <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
-
+        <div
+          style={{
+            display: "flex",
+            gap: "30px",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
           {/* BEFORE */}
           <div>
-            <p style={{ fontWeight: "bold", marginBottom: "10px" }}>Before</p>
+            <p
+              style={{
+                fontWeight: "bold",
+                marginBottom: "14px",
+                fontSize: "20px",
+              }}
+            >
+              Before
+            </p>
+
             <img
               src="/images/before.png"
-              alt="Before"
-              width="350"
-              height="350"
+              alt="Dirty window before cleaning"
               style={{
+                width: "350px",
+                maxWidth: "90vw",
+                height: "350px",
                 objectFit: "cover",
-                border: "3px solid red",
-                borderRadius: "10px"
+                borderRadius: "14px",
+                border: "4px solid #ef4444",
+                display: "block",
               }}
             />
           </div>
 
           {/* AFTER */}
           <div>
-            <p style={{ fontWeight: "bold", marginBottom: "10px" }}>After</p>
+            <p
+              style={{
+                fontWeight: "bold",
+                marginBottom: "14px",
+                fontSize: "20px",
+              }}
+            >
+              After
+            </p>
+
             <img
               src="/images/after.png"
-              alt="After"
-              width="350"
-              height="350"
+              alt="Clean window after washing"
               style={{
+                width: "350px",
+                maxWidth: "90vw",
+                height: "350px",
                 objectFit: "cover",
-                border: "3px solid green",
-                borderRadius: "10px"
+                borderRadius: "14px",
+                border: "4px solid #22c55e",
+                display: "block",
               }}
             />
           </div>
-
         </div>
       </section>
 
       {/* SERVICES */}
-      <section style={{ padding: "60px 20px", background: "#f8fafc", textAlign: "center" }}>
-        <h2 style={{ fontSize: "32px", marginBottom: "40px" }}>
+      <section
+        style={{
+          padding: "70px 20px",
+          background: "#f8fafc",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "40px",
+            marginBottom: "50px",
+          }}
+        >
           Services
         </h2>
 
-        <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "24px",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <div
+            style={{
+              background: "white",
+              padding: "30px",
+              borderRadius: "16px",
+              width: "320px",
+              boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+            }}
+          >
+            <h3 style={{ marginBottom: "14px", fontSize: "24px" }}>
+              Residential Window Washing
+            </h3>
 
-          <div style={{
-            background: "white",
-            padding: "25px",
-            borderRadius: "12px",
-            width: "300px",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.08)"
-          }}>
-            <h3>Residential Window Washing</h3>
-            <p>Interior & exterior streak-free cleaning for homes.</p>
+            <p style={{ lineHeight: 1.6 }}>
+              Interior & exterior streak-free cleaning for homes.
+            </p>
           </div>
 
-          <div style={{
-            background: "white",
-            padding: "25px",
-            borderRadius: "12px",
-            width: "300px",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.08)"
-          }}>
-            <h3>Gutter Cleaning</h3>
-            <p>Debris removal and water flow protection.</p>
-          </div>
+          <div
+            style={{
+              background: "white",
+              padding: "30px",
+              borderRadius: "16px",
+              width: "320px",
+              boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+            }}
+          >
+            <h3 style={{ marginBottom: "14px", fontSize: "24px" }}>
+              Gutter Cleaning
+            </h3>
 
+            <p style={{ lineHeight: 1.6 }}>
+              Debris removal and water flow protection.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* QUOTE */}
       <section
         id="quote"
-        style={{ padding: "60px 20px", textAlign: "center" }}
+        style={{
+          padding: "70px 20px",
+          textAlign: "center",
+          background: "#ffffff",
+        }}
       >
-        <h2 style={{ fontSize: "32px", marginBottom: "20px" }}>
+        <h2
+          style={{
+            fontSize: "40px",
+            marginBottom: "24px",
+          }}
+        >
           Get a Free Quote
         </h2>
 
@@ -159,39 +263,70 @@ export default function Home() {
             alert("Quote request sent!");
           }}
           style={{
-            maxWidth: "500px",
+            maxWidth: "520px",
             margin: "0 auto",
             display: "flex",
             flexDirection: "column",
-            gap: "12px",
+            gap: "16px",
             background: "white",
-            padding: "25px",
-            borderRadius: "12px",
+            padding: "32px",
+            borderRadius: "16px",
             border: "1px solid #ddd",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.08)"
+            boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
           }}
         >
-          <input placeholder="Name" required style={{ padding: "12px", borderRadius: "8px", border: "1px solid #ccc" }} />
-          <input placeholder="Email" required style={{ padding: "12px", borderRadius: "8px", border: "1px solid #ccc" }} />
-          <textarea placeholder="Message" required rows={5} style={{ padding: "12px", borderRadius: "8px", border: "1px solid #ccc" }} />
+          <input
+            placeholder="Name"
+            required
+            style={{
+              padding: "14px",
+              borderRadius: "10px",
+              border: "1px solid #ccc",
+              fontSize: "16px",
+            }}
+          />
+
+          <input
+            placeholder="Email"
+            required
+            style={{
+              padding: "14px",
+              borderRadius: "10px",
+              border: "1px solid #ccc",
+              fontSize: "16px",
+            }}
+          />
+
+          <textarea
+            placeholder="Message"
+            required
+            rows={5}
+            style={{
+              padding: "14px",
+              borderRadius: "10px",
+              border: "1px solid #ccc",
+              fontSize: "16px",
+              resize: "vertical",
+            }}
+          />
 
           <button
             type="submit"
             style={{
               background: "#2563eb",
               color: "white",
-              padding: "14px",
+              padding: "16px",
               border: "none",
-              borderRadius: "8px",
+              borderRadius: "10px",
               fontWeight: "bold",
-              cursor: "pointer"
+              fontSize: "16px",
+              cursor: "pointer",
             }}
           >
             Send Quote Request
           </button>
         </form>
       </section>
-
     </main>
   );
 }
