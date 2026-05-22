@@ -3,9 +3,9 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  const { name, email, message } = await req.json();
-
   try {
+    const { name, email, message } = await req.json();
+
     await resend.emails.send({
       from: "Shivam's Window Washing <onboarding@resend.dev>",
       to: "salkdee@gmail.com",
@@ -18,8 +18,26 @@ export async function POST(req: Request) {
       `,
     });
 
-    return Response.json({ success: true });
+    return new Response(
+      JSON.stringify({ success: true }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   } catch (error) {
-    return Response.json({ error: "Failed to send email" }, { status: 500 });
+    console.error("API ERROR:", error);
+
+    return new Response(
+      JSON.stringify({ success: false }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   }
 }

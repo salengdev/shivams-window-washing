@@ -26,18 +26,16 @@ export default function Home() {
         body: JSON.stringify(data),
       });
 
-      // Only fail if HTTP request actually failed
       if (!res.ok) {
         throw new Error("Request failed");
       }
 
-      // Safe parse (won't break flow if response format changes)
       await res.json().catch(() => ({}));
 
       alert("Quote request sent!");
       e.currentTarget.reset();
     } catch (err) {
-      console.error("Form submit error:", err);
+      console.error("Form error:", err);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -259,20 +257,33 @@ export default function Home() {
             border: "1px solid #ddd",
             borderRadius: "12px",
             boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+            background: "white",
           }}
         >
           <input
             name="name"
             placeholder="Name"
             required
-            style={{ padding: "12px", borderRadius: "8px" }}
+            style={{
+              padding: "14px",
+              borderRadius: "10px",
+              border: "1px solid #ccc",
+              outline: "none",
+              fontSize: "16px",
+            }}
           />
 
           <input
             name="email"
             placeholder="Email"
             required
-            style={{ padding: "12px", borderRadius: "8px" }}
+            style={{
+              padding: "14px",
+              borderRadius: "10px",
+              border: "1px solid #ccc",
+              outline: "none",
+              fontSize: "16px",
+            }}
           />
 
           <textarea
@@ -280,7 +291,14 @@ export default function Home() {
             placeholder="Message"
             rows={5}
             required
-            style={{ padding: "12px", borderRadius: "8px" }}
+            style={{
+              padding: "14px",
+              borderRadius: "10px",
+              border: "1px solid #ccc",
+              outline: "none",
+              fontSize: "16px",
+              resize: "vertical",
+            }}
           />
 
           <button
@@ -291,7 +309,7 @@ export default function Home() {
               color: "white",
               padding: "14px",
               border: "none",
-              borderRadius: "8px",
+              borderRadius: "10px",
               fontWeight: "bold",
               cursor: "pointer",
             }}
