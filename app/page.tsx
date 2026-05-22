@@ -26,7 +26,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative h-[85vh] flex items-center justify-center text-center text-white">
         <img
-          src="/gallery/hero.png"
+          src="/gallery/Hero.png"
           alt="Window cleaning service in Calgary"
           className="absolute inset-0 w-full h-full object-cover"
         />
