@@ -2,38 +2,65 @@ import React from "react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="flex flex-col">
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="relative w-full h-screen overflow-hidden">
 
-        {/* Background Image */}
         <img
           src="/gallery/hero.png"
-          alt="Window cleaning service in Calgary"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          alt="Window cleaning service"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/40" />
 
-        {/* Hero content */}
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-6">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
 
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Shivam's Window Washing
           </h1>
 
-          <p className="text-lg md:text-2xl mb-6 max-w-2xl">
-            Professional residential & commercial window cleaning in Calgary
+          <p className="text-lg md:text-2xl mb-6">
+            Professional window cleaning services
           </p>
 
           <a
             href="#quote"
-            className="bg-blue-500 hover:bg-blue-600 transition px-6 py-3 rounded-xl text-lg"
+            className="bg-blue-500 px-6 py-3 rounded-xl"
           >
-            Get a Free Quote
+            Get Quote
           </a>
+
+        </div>
+      </section>
+
+      {/* BEFORE / AFTER */}
+      <section className="py-16 px-6 text-center">
+
+        <h2 className="text-3xl font-bold mb-10">
+          Before & After
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+          <div>
+            <img
+              src="/gallery/before.png"
+              alt="Before cleaning"
+              className="w-full rounded-xl shadow"
+            />
+            <p className="mt-2">Before</p>
+          </div>
+
+          <div>
+            <img
+              src="/gallery/after.png"
+              alt="After cleaning"
+              className="w-full rounded-xl shadow"
+            />
+            <p className="mt-2">After</p>
+          </div>
 
         </div>
       </section>
@@ -42,35 +69,35 @@ export default function Home() {
       <section className="py-16 px-6 text-center">
 
         <h2 className="text-3xl font-bold mb-10">
-          Our Services
+          Services
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
-          <div className="p-6 shadow-lg rounded-xl">
-            Residential Window Cleaning
+          <div className="p-6 shadow rounded-xl">
+            Residential Cleaning
           </div>
 
-          <div className="p-6 shadow-lg rounded-xl">
-            Commercial Window Cleaning
+          <div className="p-6 shadow rounded-xl">
+            Commercial Cleaning
           </div>
 
-          <div className="p-6 shadow-lg rounded-xl">
-            Exterior Wash & Maintenance
+          <div className="p-6 shadow rounded-xl">
+            Exterior Wash
           </div>
 
         </div>
       </section>
 
-      {/* QUOTE SECTION */}
+      {/* QUOTE */}
       <section id="quote" className="py-16 px-6 bg-gray-100 text-center">
 
         <h2 className="text-3xl font-bold mb-6">
-          Request a Free Quote
+          Request a Quote
         </h2>
 
         <p className="mb-6">
-          Fast response. Professional service. Affordable pricing.
+          Fast response and affordable pricing
         </p>
 
         <a
