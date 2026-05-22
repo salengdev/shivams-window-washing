@@ -26,14 +26,17 @@ export default function Home() {
         body: JSON.stringify(data),
       });
 
-      if (res.ok) {
-        alert("Quote request sent!");
-        e.currentTarget.reset();
-      } else {
-        alert("Failed to send request.");
+      const result = await res.json();
+
+      if (!res.ok || result?.error) {
+        throw new Error("API failed");
       }
+
+      alert("Quote request sent!");
+      e.currentTarget.reset();
     } catch (err) {
-      alert("Something went wrong.");
+      console.error(err);
+      alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -135,7 +138,6 @@ export default function Home() {
             flexWrap: "wrap",
           }}
         >
-          {/* BEFORE */}
           <div
             style={{
               width: "360px",
@@ -160,7 +162,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* AFTER */}
           <div
             style={{
               width: "360px",
