@@ -9,6 +9,7 @@ export default function Home() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    // prevent double submits
     if (loading) return;
 
     setLoading(true);
@@ -29,8 +30,9 @@ export default function Home() {
         }),
       });
 
+      // ONLY trust HTTP status
       if (!res.ok) {
-        throw new Error("API request failed");
+        throw new Error("Request failed");
       }
 
       setStatus("success");
@@ -46,7 +48,7 @@ export default function Home() {
   return (
     <main style={{ fontFamily: "Arial", color: "#111" }}>
 
-      {/* HERO (RESTORED) */}
+      {/* HERO */}
       <section
         style={{
           position: "relative",
@@ -118,16 +120,13 @@ export default function Home() {
       <section style={{ padding: "70px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: "40px" }}>Gallery</h2>
 
-        <p style={{ color: "#666", marginBottom: "40px" }}>
-          Real results from professional window cleaning
-        </p>
-
         <div
           style={{
             display: "flex",
             gap: "20px",
             justifyContent: "center",
             flexWrap: "wrap",
+            marginTop: "30px",
           }}
         >
           <img src="/images/before.png" width="320" />
@@ -154,11 +153,11 @@ export default function Home() {
             marginTop: "30px",
           }}
         >
-          <div style={{ padding: "20px", background: "#fff", borderRadius: "12px" }}>
+          <div style={{ padding: "20px", background: "white", borderRadius: "12px" }}>
             Window Washing
           </div>
 
-          <div style={{ padding: "20px", background: "#fff", borderRadius: "12px" }}>
+          <div style={{ padding: "20px", background: "white", borderRadius: "12px" }}>
             Gutter Cleaning
           </div>
         </div>
@@ -170,7 +169,7 @@ export default function Home() {
           Get a Free Quote
         </h2>
 
-        {/* STATUS BANNER */}
+        {/* SUCCESS / ERROR BANNERS */}
         {status === "success" && (
           <div
             style={{
