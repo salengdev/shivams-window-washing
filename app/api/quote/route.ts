@@ -1,14 +1,14 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const name = body?.name || "";
-    const email = body?.email || "";
-    const message = body?.message || "";
+    const name = body?.name ?? "";
+    const email = body?.email ?? "";
+    const message = body?.message ?? "";
 
     await resend.emails.send({
       from: "Shivam's Window Washing <onboarding@resend.dev>",
@@ -22,23 +22,27 @@ export async function POST(req: Request) {
       `,
     });
 
-    // IMPORTANT: return clean response immediately
+    // CRITICAL: always return clean response BEFORE anything else
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ ok: true }),
       {
         status: 200,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
     );
 
-  } catch (error) {
-    console.error("QUOTE API ERROR:", error);
+  } catch (err) {
+    console.error("API ERROR:", err);
 
     return new Response(
-      JSON.stringify({ success: false }),
+      JSON.stringify({ ok: false }),
       {
         status: 500,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
     );
   }
