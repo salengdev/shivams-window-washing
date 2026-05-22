@@ -49,56 +49,60 @@ export default function Home() {
       <section style={{ position: "relative", height: "70vh" }}>
         <img
           src="/images/hero.png"
+          alt="Hero"
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
             position: "absolute",
+            inset: 0,
           }}
         />
 
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(0,0,0,0.5)"
-        }} />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(0,0,0,0.45)",
+          }}
+        />
 
-        <div style={{
-          position: "relative",
-          zIndex: 2,
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          color: "white",
-          padding: 20
-        }}>
-          
-          {/* 🔥 STRONG HEADLINE */}
-          <h1 style={{ fontSize: 52, fontWeight: "bold", maxWidth: 900 }}>
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            color: "white",
+            padding: "20px",
+          }}
+        >
+          <h1 style={{ fontSize: "48px", fontWeight: "bold" }}>
             Crystal-Clear Windows That Transform Your Home Instantly
           </h1>
 
-          <p style={{ fontSize: 18, marginTop: 10 }}>
-            Professional Window Washing & Gutter Cleaning in Calgary & Surrounding Areas
+          <p style={{ fontSize: "18px", marginTop: "10px" }}>
+            Window Washing & Gutter Cleaning in Calgary & Surrounding Areas
           </p>
 
-          <p style={{ marginTop: 10, fontWeight: "bold" }}>
+          <p style={{ marginTop: "10px", fontWeight: "bold" }}>
             Local & Fast • Trusted Service • Free Estimates
           </p>
 
           <a
             href="#quote"
             style={{
-              marginTop: 20,
+              marginTop: "20px",
               background: "#22c55e",
-              padding: "12px 18px",
-              borderRadius: 8,
               color: "white",
+              padding: "12px 18px",
+              borderRadius: "8px",
+              textDecoration: "none",
               fontWeight: "bold",
-              textDecoration: "none"
             }}
           >
             Get Free Quote
@@ -106,51 +110,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BEFORE / AFTER SLIDER */}
-      <section style={{ padding: "70px 20px", textAlign: "center" }}>
-        <h2 style={{ fontSize: 40 }}>Before & After Results</h2>
+      {/* BEFORE / AFTER (CLEAN + SMALL) */}
+      <section style={{ padding: "60px 20px", textAlign: "center" }}>
+        <h2 style={{ fontSize: "32px" }}>Before & After Results</h2>
 
-        <p style={{ color: "#555", marginTop: 10 }}>
-          Drag the slider to see the transformation
+        <p style={{ color: "#555", marginTop: 8 }}>
+          Drag to compare
         </p>
 
-        <div style={{
-          position: "relative",
-          maxWidth: 700,
-          margin: "30px auto",
-          overflow: "hidden",
-          borderRadius: 12
-        }}>
-
-          {/* AFTER IMAGE */}
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            maxWidth: 500,
+            height: 300,
+            margin: "25px auto",
+            overflow: "hidden",
+            borderRadius: 10,
+            border: "1px solid #ddd",
+          }}
+        >
+          {/* AFTER */}
           <img
             src="/images/after.png"
+            alt="after"
             style={{
+              position: "absolute",
+              inset: 0,
               width: "100%",
-              display: "block"
+              height: "100%",
+              objectFit: "cover",
             }}
           />
 
-          {/* BEFORE IMAGE (overlay) */}
-          <div style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: `${slider}%`,
-            height: "100%",
-            overflow: "hidden"
-          }}>
+          {/* BEFORE */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: `${slider}%`,
+              overflow: "hidden",
+            }}
+          >
             <img
               src="/images/before.png"
+              alt="before"
               style={{
                 width: "100%",
                 height: "100%",
-                objectFit: "cover"
+                objectFit: "cover",
               }}
             />
           </div>
 
-          {/* SLIDER CONTROL */}
+          {/* SLIDER */}
           <input
             type="range"
             min="0"
@@ -158,8 +171,11 @@ export default function Home() {
             value={slider}
             onChange={(e) => setSlider(Number(e.target.value))}
             style={{
-              width: "100%",
-              marginTop: 15
+              position: "absolute",
+              bottom: 10,
+              left: 10,
+              right: 10,
+              width: "calc(100% - 20px)",
             }}
           />
         </div>
@@ -167,7 +183,7 @@ export default function Home() {
 
       {/* SERVICE AREAS */}
       <section style={{ padding: "70px 20px", background: "#f8fafc", textAlign: "center" }}>
-        <h2 style={{ fontSize: 40 }}>Service Areas</h2>
+        <h2 style={{ fontSize: "40px" }}>Service Areas</h2>
 
         <p style={{ marginTop: 10 }}>
           Calgary & surrounding areas
@@ -177,13 +193,15 @@ export default function Home() {
           Local & Fast Service You Can Rely On
         </p>
 
-        <div style={{
-          marginTop: 25,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: 12
-        }}>
+        <div
+          style={{
+            marginTop: 25,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 12,
+          }}
+        >
           {[
             "Calgary",
             "Airdrie",
@@ -192,15 +210,18 @@ export default function Home() {
             "Cochrane",
             "Strathmore",
             "High River",
-            "Bragg Creek"
-          ].map(a => (
-            <div key={a} style={{
-              padding: "10px 16px",
-              background: "white",
-              borderRadius: 20,
-              boxShadow: "0 2px 6px rgba(0,0,0,0.08)"
-            }}>
-              {a}
+            "Bragg Creek",
+          ].map((area) => (
+            <div
+              key={area}
+              style={{
+                padding: "10px 16px",
+                background: "white",
+                borderRadius: 20,
+                boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
+              }}
+            >
+              {area}
             </div>
           ))}
         </div>
@@ -208,7 +229,7 @@ export default function Home() {
 
       {/* QUOTE */}
       <section id="quote" style={{ padding: "70px 20px" }}>
-        <h2 style={{ textAlign: "center", fontSize: 40 }}>
+        <h2 style={{ textAlign: "center", fontSize: "40px" }}>
           Get a Free Quote
         </h2>
 
@@ -221,7 +242,7 @@ export default function Home() {
             color: "#166534",
             borderRadius: 10,
             textAlign: "center",
-            fontWeight: "bold"
+            fontWeight: "bold",
           }}>
             ✅ Quote request sent successfully!
           </div>
@@ -236,7 +257,7 @@ export default function Home() {
             color: "#991b1b",
             borderRadius: 10,
             textAlign: "center",
-            fontWeight: "bold"
+            fontWeight: "bold",
           }}>
             ❌ Something went wrong. Please try again.
           </div>
@@ -253,7 +274,7 @@ export default function Home() {
             padding: 25,
             border: "1px solid #ddd",
             borderRadius: 12,
-            background: "white"
+            background: "white",
           }}
         >
           <input name="name" placeholder="Name" required style={inputStyle} />
@@ -269,7 +290,8 @@ export default function Home() {
               padding: 14,
               borderRadius: 10,
               border: "none",
-              fontWeight: "bold"
+              fontWeight: "bold",
+              cursor: "pointer",
             }}
           >
             {loading ? "Sending..." : "Send Quote Request"}
@@ -283,5 +305,5 @@ export default function Home() {
 const inputStyle = {
   padding: "14px",
   borderRadius: "10px",
-  border: "1px solid #ccc"
+  border: "1px solid #ccc",
 };
