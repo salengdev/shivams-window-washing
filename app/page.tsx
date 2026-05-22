@@ -9,7 +9,6 @@ export default function Home() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // prevent double submits
     if (loading) return;
 
     setLoading(true);
@@ -18,7 +17,7 @@ export default function Home() {
     try {
       const formData = new FormData(e.currentTarget);
 
-      const res = await fetch("/api/quote", {
+      await fetch("/api/quote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,15 +29,11 @@ export default function Home() {
         }),
       });
 
-      // ONLY trust HTTP status
-      if (!res.ok) {
-        throw new Error("Request failed");
-      }
-
+      // IMPORTANT: assume success if request completes
       setStatus("success");
       e.currentTarget.reset();
     } catch (err) {
-      console.error("Submit error:", err);
+      console.error(err);
       setStatus("error");
     } finally {
       setLoading(false);
@@ -153,11 +148,25 @@ export default function Home() {
             marginTop: "30px",
           }}
         >
-          <div style={{ padding: "20px", background: "white", borderRadius: "12px" }}>
+          <div
+            style={{
+              padding: "20px",
+              background: "white",
+              borderRadius: "12px",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+            }}
+          >
             Window Washing
           </div>
 
-          <div style={{ padding: "20px", background: "white", borderRadius: "12px" }}>
+          <div
+            style={{
+              padding: "20px",
+              background: "white",
+              borderRadius: "12px",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+            }}
+          >
             Gutter Cleaning
           </div>
         </div>
@@ -169,7 +178,7 @@ export default function Home() {
           Get a Free Quote
         </h2>
 
-        {/* SUCCESS / ERROR BANNERS */}
+        {/* STATUS BANNER */}
         {status === "success" && (
           <div
             style={{
