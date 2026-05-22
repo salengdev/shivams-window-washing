@@ -5,7 +5,6 @@ import { useState } from "react";
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<null | "success" | "error">(null);
-  const [slider, setSlider] = useState(50);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -45,8 +44,9 @@ export default function Home() {
   return (
     <main style={{ fontFamily: "Arial", color: "#111" }}>
 
-      {/* HERO */}
-      <section style={{ position: "relative", height: "70vh" }}>
+      {/* HERO (FIXED - NO MORE CROPPING ISSUES) */}
+      <section style={{ position: "relative", height: "75vh" }}>
+
         <img
           src="/images/hero.png"
           alt="Hero"
@@ -54,16 +54,19 @@ export default function Home() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
+            objectPosition: "top center", // ✅ FIX: keeps top visible
             position: "absolute",
             inset: 0,
           }}
         />
 
+        {/* darker + smoother overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.45)",
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.6))",
           }}
         />
 
@@ -81,22 +84,22 @@ export default function Home() {
             padding: "20px",
           }}
         >
-          <h1 style={{ fontSize: "48px", fontWeight: "bold" }}>
-            Crystal-Clear Windows That Transform Your Home Instantly
+          <h1 style={{ fontSize: "46px", fontWeight: "bold", maxWidth: 900 }}>
+            Crystal-Clear Windows That Instantly Transform Your Home
           </h1>
 
-          <p style={{ fontSize: "18px", marginTop: "10px" }}>
+          <p style={{ fontSize: "18px", marginTop: "12px" }}>
             Window Washing & Gutter Cleaning in Calgary & Surrounding Areas
           </p>
 
-          <p style={{ marginTop: "10px", fontWeight: "bold" }}>
-            Local & Fast • Trusted Service • Free Estimates
+          <p style={{ marginTop: "12px", fontWeight: "bold" }}>
+            Local & Fast • Trusted • Free Estimates
           </p>
 
           <a
             href="#quote"
             style={{
-              marginTop: "20px",
+              marginTop: "22px",
               background: "#22c55e",
               color: "white",
               padding: "12px 18px",
@@ -110,74 +113,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BEFORE / AFTER (CLEAN + SMALL) */}
+      {/* BEFORE / AFTER (SIMPLE + CLEAN) */}
       <section style={{ padding: "60px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: "32px" }}>Before & After Results</h2>
 
-        <p style={{ color: "#555", marginTop: 8 }}>
-          Drag to compare
-        </p>
-
         <div
           style={{
-            position: "relative",
-            width: "100%",
-            maxWidth: 500,
-            height: 300,
-            margin: "25px auto",
-            overflow: "hidden",
-            borderRadius: 10,
-            border: "1px solid #ddd",
+            display: "flex",
+            gap: "20px",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            marginTop: "30px",
           }}
         >
-          {/* AFTER */}
-          <img
-            src="/images/after.png"
-            alt="after"
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-
-          {/* BEFORE */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: `${slider}%`,
-              overflow: "hidden",
-            }}
-          >
+          <div>
+            <p style={{ fontWeight: "bold", marginBottom: 10 }}>Before</p>
             <img
               src="/images/before.png"
-              alt="before"
               style={{
-                width: "100%",
-                height: "100%",
+                width: "320px",
+                height: "220px",
                 objectFit: "cover",
+                borderRadius: "10px",
+                border: "1px solid #ddd",
               }}
             />
           </div>
 
-          {/* SLIDER */}
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={slider}
-            onChange={(e) => setSlider(Number(e.target.value))}
-            style={{
-              position: "absolute",
-              bottom: 10,
-              left: 10,
-              right: 10,
-              width: "calc(100% - 20px)",
-            }}
-          />
+          <div>
+            <p style={{ fontWeight: "bold", marginBottom: 10 }}>After</p>
+            <img
+              src="/images/after.png"
+              style={{
+                width: "320px",
+                height: "220px",
+                objectFit: "cover",
+                borderRadius: "10px",
+                border: "1px solid #ddd",
+              }}
+            />
+          </div>
         </div>
       </section>
 
@@ -187,10 +162,6 @@ export default function Home() {
 
         <p style={{ marginTop: 10 }}>
           Calgary & surrounding areas
-        </p>
-
-        <p style={{ marginTop: 10, fontWeight: "bold" }}>
-          Local & Fast Service You Can Rely On
         </p>
 
         <div
