@@ -38,10 +38,7 @@ export default function Home() {
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
+            inset: 0,
             background: "rgba(0,0,0,0.45)",
             zIndex: 1
           }}
@@ -90,18 +87,16 @@ export default function Home() {
         >
 
           {/* BEFORE */}
-          <div
-            style={{
-              background: "#fff",
-              padding: "12px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
-              textAlign: "center"
-            }}
-          >
+          <div style={{
+            background: "#fff",
+            padding: "12px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
+            textAlign: "center"
+          }}>
             <p style={{ marginBottom: "10px", fontWeight: "600" }}>Before</p>
             <img
-              src="/public/before.png"
+              src="/gallery/before.png"
               alt="Before cleaning"
               style={{
                 width: "100%",
@@ -113,15 +108,13 @@ export default function Home() {
           </div>
 
           {/* AFTER */}
-          <div
-            style={{
-              background: "#fff",
-              padding: "12px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
-              textAlign: "center"
-            }}
-          >
+          <div style={{
+            background: "#fff",
+            padding: "12px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
+            textAlign: "center"
+          }}>
             <p style={{ marginBottom: "10px", fontWeight: "600" }}>After</p>
             <img
               src="/gallery/after.png"
@@ -153,37 +146,27 @@ export default function Home() {
           }}
         >
 
-          {/* WINDOW WASHING */}
-          <div
-            style={{
-              background: "#fff",
-              padding: "20px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.08)"
-            }}
-          >
-            <h3 style={{ fontSize: "18px", marginBottom: "10px" }}>
-              Residential Window Washing
-            </h3>
-            <p style={{ color: "#666", fontSize: "14px", lineHeight: "1.5" }}>
-              Professional streak-free window cleaning for homes. Interior and exterior glass cleaned safely and efficiently.
+          <div style={{
+            background: "#fff",
+            padding: "20px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.08)"
+          }}>
+            <h3>Residential Window Washing</h3>
+            <p style={{ color: "#666", fontSize: "14px" }}>
+              Streak-free interior and exterior window cleaning for homes.
             </p>
           </div>
 
-          {/* GUTTER CLEANING */}
-          <div
-            style={{
-              background: "#fff",
-              padding: "20px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.08)"
-            }}
-          >
-            <h3 style={{ fontSize: "18px", marginBottom: "10px" }}>
-              Gutter Cleaning
-            </h3>
-            <p style={{ color: "#666", fontSize: "14px", lineHeight: "1.5" }}>
-              Full gutter debris removal and flushing to prevent water damage, leaks, and roof issues.
+          <div style={{
+            background: "#fff",
+            padding: "20px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.08)"
+          }}>
+            <h3>Gutter Cleaning</h3>
+            <p style={{ color: "#666", fontSize: "14px" }}>
+              Full debris removal and flushing to protect your home from water damage.
             </p>
           </div>
 
@@ -191,10 +174,7 @@ export default function Home() {
       </section>
 
       {/* QUOTE */}
-      <section
-        id="quote"
-        style={{ background: "#f5f5f5", padding: "60px 20px" }}
-      >
+      <section id="quote" style={{ background: "#f5f5f5", padding: "60px 20px" }}>
 
         <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
 
@@ -218,45 +198,26 @@ export default function Home() {
                 message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
               };
 
-              const res = await fetch("/api/quote", {
+              await fetch("/api/quote", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
               });
 
-              if (res.ok) {
-                alert("Quote request sent!");
-                form.reset();
-              } else {
-                alert("Something went wrong. Try again.");
-              }
+              alert("Quote request sent!");
+              form.reset();
             }}
             style={{ display: "flex", flexDirection: "column", gap: "10px" }}
           >
 
-            <input
-              name="name"
-              type="text"
-              placeholder="Your Name"
-              required
-              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }}
-            />
+            <input name="name" placeholder="Your Name" required
+              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }} />
 
-            <input
-              name="email"
-              type="email"
-              placeholder="Your Email"
-              required
-              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }}
-            />
+            <input name="email" placeholder="Your Email" required
+              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }} />
 
-            <textarea
-              name="message"
-              placeholder="What do you need cleaned?"
-              required
-              rows={4}
-              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }}
-            />
+            <textarea name="message" placeholder="Message" required rows={4}
+              style={{ padding: "10px", borderRadius: "6px", border: "1px solid #ccc" }} />
 
             <button
               type="submit"
@@ -266,8 +227,8 @@ export default function Home() {
                 padding: "12px",
                 borderRadius: "8px",
                 border: "none",
-                cursor: "pointer",
-                fontWeight: "bold"
+                fontWeight: "bold",
+                cursor: "pointer"
               }}
             >
               Send Quote Request
